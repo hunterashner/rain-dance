@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from 'react-router-dom';
+import Navigation from './routes/Navigation';
+import Home from './routes/Home';
+import Testing from './routes/Testing';
+import HowsTheWeather from "./routes/HowsTheWeather";
+import MySeeds from "./routes/MySeeds";
+import Alarms from "./routes/Alarms";
+import Statistics from "./routes/Statistics";
+import AddPlants from "./routes/AddPlants";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path='/testing' element={<Testing />} />
+        <Route path='/howstheweather' element={<HowsTheWeather />} />
+        <Route path='/myseeds' element={<MySeeds />} />
+        <Route path='/alarms' element={<Alarms />} />
+        <Route path='/statistics' element={<Statistics />} />
+        <Route path='/addplants' element={<AddPlants />} />
+      </Route>
+    </Routes>
   );
 }
 
